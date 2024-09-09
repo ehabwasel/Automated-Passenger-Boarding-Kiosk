@@ -35,3 +35,5 @@ The traditional boarding process often involves time-consuming manual checks, wh
 - 5 digital ID cards and boarding passes.
 - 15-30 second videos of each passenger’s face.
 - Photos of each passenger's carry-on items.
+
+
