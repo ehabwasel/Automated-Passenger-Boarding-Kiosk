@@ -35,3 +35,64 @@ The traditional boarding process often involves time-consuming manual checks, wh
 - 5 digital ID cards and boarding passes.
 - 15-30 second videos of each passenger’s face.
 - Photos of each passenger's carry-on items.
+![Architectural Diagram](./step_1_problemDefintion_system_design/dataflow.png)
+
+
+### Solution Strategy
+
+1. Train Azure Form Recognizer model to extract passenger info from boarding passes
+2. Use Face API and Form Recognizer to extract face and personal info from digital IDs
+3. Validate passenger info from boarding pass against manifest list
+4. If name exists in manifest, validate identity from personal ID
+5. Verify face from digital ID matches face from passenger video using Video Indexer
+6. Train Azure Custom Vision model to identify lighters in carry-on images
+7. Test Custom Vision model on sample carry-on images
+8. Display final validation success/failure message to complete boarding process
+
+![Architectural Diagram]( ./step_1_problemDefintion_system_design/system_archupdated.png)
+
+
+### Azure AI Services Used
+
+- [AI Video Indexer API](https://www.videoindexer.ai) (formerly Video Recognizer)
+- [Form Recognizer Tool](https://fott-2-1.azurewebsites.net/) (now Document Intelligence)
+- [Custom Vision](https://www.customvision.ai/)
+- Face API
+
+## Project Summary
+
+The automated passenger boarding kiosk prototype exemplifies the practical implications of cutting-edge technology in real-world scenarios. By seamlessly integrating Azure services and custom computer vision models, the system demonstrates the feasibility of automating complex processes within the airline industry. From digital ID recognition to emotion detection and beyond, the project showcases how advancements in AI can revolutionize traditional workflows, offering tangible benefits in terms of efficiency, accuracy, and passenger satisfaction. Through the submission of project deliverables via GitHub repositories, participants contribute to the ongoing evolution of AI-driven solutions in the aviation sector, paving the way for future innovations and enhancements in passenger boarding experiences.
+## Implementation
+
+### Installation
+
+- All required Python packages can be found in the [_requirements.txt_](step_5_validation_metrics_monitoring/requirements.txt) file (see step 5).
+- All environment variables have been stored in a _.env_ file at the main folder of this project:
+
+```bash
+AZURE_USERNAME=...
+AZURE_PASSWORD=...
+
+STORAGE_ACCOUNT_NAME=...
+LOCATION=...
+
+AZURE_FORM_RECOGNIZER_ENDPOINT=...
+AZURE_FORM_RECOGNIZER_KEY=...
+AZURE_BLOB_CONTAINER_SAS_URI=...
+
+VIDEO_RECOGNIZER_SUBSCRIPTION_KEY=...
+VIDEO_RECOGNIZER_ACCOUNT_ID=...
+
+FACE_API_KEY=...
+FACE_API_ENDPOINT=...
+
+CUSTOM_VISION_TRAINING_ENDPOINT=...
+CUSTOM_VISION_TRAINING_KEY=...
+CUSTOM_VISION_TRAINING_RESOURCE_ID=...
+
+CUSTOM_VISION_PREDICTION_ENDPOINT=...
+CUSTOM_VISION_PREDICTION_KEY=...
+CUSTOM_VISION_PREDICTION_RESOURCE_ID=...
+
+STORAGE_ACCOUNT_CONNECTION_STRING=...
+```
