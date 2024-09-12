@@ -35,7 +35,7 @@ The traditional boarding process often involves time-consuming manual checks, wh
 - 5 digital ID cards and boarding passes.
 - 15-30 second videos of each passenger’s face.
 - Photos of each passenger's carry-on items.
-![Architectural Diagram](./step_1_problemDefintion_system_design/dataflow.png)
+![Architectural Diagram](./step_01_problemDefintion_system_design/dataflow.png)
 
 
 ### Solution Strategy
@@ -49,7 +49,7 @@ The traditional boarding process often involves time-consuming manual checks, wh
 7. Test Custom Vision model on sample carry-on images
 8. Display final validation success/failure message to complete boarding process
 
-![Architectural Diagram]( ./step_1_problemDefintion_system_design/system_archupdated.png)
+![Architectural Diagram]( ./step_01_problemDefintion_system_design/system_archupdated.png)
 
 
 ### Azure AI Services Used
@@ -66,7 +66,7 @@ The automated passenger boarding kiosk prototype exemplifies the practical impli
 
 ### Installation
 
-- All required Python packages can be found in the [_requirements.txt_](step_5_validation_metrics_monitoring/requirements.txt) file (see step 5).
+- All required Python packages can be found in the [_requirements.txt_](step_05_validation_metrics_monitoring/requirements.txt) file (see step 5).
 - All environment variables have been stored in a _.env_ file at the main folder of this project:
 
 ```bash
